@@ -28,7 +28,7 @@ jobs:
         run: docker build -t my-app:${{ github.sha }} .
 
       - name: Tag Image
-        run: docker tag my-app:${{ github.sha }} <ECR-URL>/my-app:${{ github.sha }}
+        run: docker tag my-app:${{ github.sha }} 428613119876.dkr.ecr.us-east-1.amazonaws.com/my-app/my-app:${{ github.sha }}
 
       - name: Push to ECR
         run: docker push <ECR-URL>/my-app:${{ github.sha }}
