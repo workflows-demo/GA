@@ -25,13 +25,13 @@ jobs:
           docker login --username AWS --password-stdin 428613119876.dkr.ecr.$AWS_REGION.amazonaws.com
 
       - name: Build Docker Image
-        run: docker build -t my-app .
+        run: docker build -t my-app:${{ github.sha }} .
 
       - name: Tag Image
-        run: docker tag my-app:latest 428613119876.dkr.ecr.$AWS_REGION.amazonaws.com/my-app:latest
+        run: docker tag my-app:${{ github.sha }} <ECR-URL>/my-app:${{ github.sha }}
 
       - name: Push to ECR
-        run: docker push 428613119876.dkr.ecr.$AWS_REGION.amazonaws.com/my-app:latest
+        run: docker push <ECR-URL>/my-app:${{ github.sha }}
 
       - name: Update kubeconfig
         run: aws eks update-kubeconfig --region ${{ secrets.AWS_REGION }} --name my-cluster
