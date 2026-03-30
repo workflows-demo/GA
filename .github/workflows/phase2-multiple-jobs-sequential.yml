@@ -3,10 +3,10 @@ on: push
 jobs:
   
   build:
-  runs-on: ubuntu-latest
-  steps:
-    - name: building phase
-      run: echo "building..."
+    runs-on: ubuntu-latest
+    steps:
+      - name: building phase
+        run: echo "building..."
 
   test:
     runs-on: ubuntu-latest
