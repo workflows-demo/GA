@@ -2,11 +2,11 @@ name: my first workflow
 on: push
 jobs:
   build:
-  runs-on: ubuntu-latest
-  steps:
-    - name: checkout code
-      run: actions/checkout@v3
-  
-    - name: Print message
-      run: echo "Hello from my first workflow"
-  
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        run: actions/checkout@v3
+    
+      - name: Print message
+        run: echo "Hello from my first workflow"
+    
