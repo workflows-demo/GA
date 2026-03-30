@@ -1,0 +1,23 @@
+name: multiple jobs with dependencies
+on: push
+jobs:
+  
+  build:
+  runs-on: ubuntu-latest
+  steps:
+    - name: building phase
+      run: echo "building..."
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: testing phase
+        run: echo "testing..."
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: deployment phase
+        run: echo "deploying..."
