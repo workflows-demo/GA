@@ -1,0 +1,11 @@
+name: my first workflow
+on: push
+jobs:
+  runs-on: ubuntu
+  steps:
+    - name: checkout code
+      run: actions/checkout@v3
+  
+    - name: Print message
+      run: echo "Hello from my first workflow"
+  
