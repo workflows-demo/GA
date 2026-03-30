@@ -32,3 +32,11 @@ jobs:
 
       - name: Push to ECR
         run: docker push 428613119876.dkr.ecr.$AWS_REGION.amazonaws.com/my-app:latest
+
+      - name: Update kubeconfig
+        run: aws eks update-kubeconfig --region ${{ secrets.AWS_REGION }} --name my-cluster
+
+      - name: Deploy to EKS
+        run: |
+          kubectl apply -f deployment.yaml
+          kubectl apply -f service.yaml
